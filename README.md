@@ -2,7 +2,7 @@
 
 ## 🧭 Visão Geral
 
-Este projeto tem como objetivo guiar profissionais e estudantes no entendimento e prática da criação de uma infraestrutura robusta na **nuvem Azure**, focada em **engenharia de dados e machine learning**, abordando desde o conceito de precificação até a implementação de serviços como **Azure Databricks**, **Data Factory**, **Delta Lake**, **AKS**, entre outros.
+Este projeto tem como objetivo a prática da criação de uma infraestrutura robusta na **nuvem Azure**, focada em **engenharia de dados e machine learning**, abordando desde o conceito de precificação até a implementação de serviços como **Azure Databricks**, **Data Factory**, **Delta Lake**, **AKS**, entre outros.
 
 ---
 
