@@ -24,18 +24,15 @@ A [Calculadora de Preços do Azure](https://azure.microsoft.com/pt-br/pricing/ca
 - 📊 Comparar diferentes modelos de precificação.
 - 📥 Exportar o orçamento mensal estimado em PDF ou Excel.
 
-> **Dica:** Sempre adicione um buffer de 10–15% ao custo estimado para variações e taxas adicionais.
-
 ---
 
 ## 🎓 Onde Estudar e Aprender na Prática
 
 ### 📚 Fontes Oficiais:
-- [Microsoft Learn - Rota de Engenharia de Dados](https://learn.microsoft.com/pt-br/training/paths/data-engineer/)
-- [Microsoft AI for Tech](https://learn.microsoft.com/en-us/training/paths/microsoft-ai-cloud/)
+- Microsoft Learn 
 
 ### 🧪 Prática com Conta Gratuita
-1. Crie sua conta gratuita: https://azure.microsoft.com/free
+1. Crie sua conta gratuita
 2. Ganhe **R$ 1.000 em créditos por 30 dias**.
 3. Acesse serviços gratuitos por 12 meses, como:
    - Azure Data Factory (limite gratuito mensal)
@@ -46,7 +43,7 @@ A [Calculadora de Preços do Azure](https://azure.microsoft.com/pt-br/pricing/ca
 
 ## 🏗️ Estrutura da Infra Completa (Arquitetura de Engenharia de Dados)
 
-Abaixo, os serviços utilizados na construção de uma infraestrutura robusta de dados:
+Abaixo, os serviços utilizados na construção da nossa infraestrutura:
 
 | Serviço | Descrição |
 |--------|-----------|
@@ -57,23 +54,6 @@ Abaixo, os serviços utilizados na construção de uma infraestrutura robusta de
 | 🐳 **AKS (Azure Kubernetes Service)** | Orquestração de containers para deploy de modelos e APIs. |
 | 🌊 **Delta Lake** | Camada de armazenamento transacional sobre o Data Lake. |
 | 🔁 **MLflow** | Controle de experimentos de Machine Learning. |
-
----
-
-## 🧩 Exemplo de Implementação
-
-1. Criação dos Workspaces: `Databricks`, `ML`, `AKS`.
-2. Conecte o Event Hub ao Data Lake via Azure Data Factory.
-3. Use o Delta Lake para garantir transações e versionamento.
-4. Realize experimentos com MLflow no Azure ML.
-5. Orquestre modelos finais com AKS.
-
----
-
-## 🔐 Segurança: Key Vault e Bloqueios
-
-- Utilize o **Azure Key Vault** para armazenar segredos, conexões e credenciais de forma segura.
-- 🔒 **Bloqueios (Locks)**: Aplique *ReadOnly* ou *Delete Lock* nos recursos críticos para evitar exclusões acidentais.
 
 ---
 
@@ -91,7 +71,5 @@ Para garantir **resiliência e continuidade**, implemente:
 ## ✅ Conclusão
 
 Este projeto proporciona uma vivência prática com os principais recursos de engenharia de dados no Azure, desde a estimativa de custos até a implementação de uma infraestrutura real, segura e escalável.
-
-> Aproveite a conta gratuita e mãos à obra! 🚀
 
 ---
