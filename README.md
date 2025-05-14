@@ -57,14 +57,63 @@ Abaixo, os serviços utilizados na construção da nossa infraestrutura:
 
 ---
 
-## ♻️ Redundância e Recuperação de Arquivos
+# 🔁 Cópia de Dados On-Premises para Azure Data Lake
 
-Para garantir **resiliência e continuidade**, implemente:
+## 🧭 Visão Geral
 
-- ✅ **Geo-Redundância (GRS)** no Azure Storage: cópias automáticas dos dados em outra região.
-- 🧬 **Versionamento de arquivos** com Delta Lake.
-- 📁 **Snapshots** periódicos do Data Lake.
-- 🔁 Estratégias de **backup agendado** com Recovery Services Vault.
+Este projeto documenta o processo de **criação de redundância de arquivos e sincronização de dados** entre um ambiente **on-premises com SQL Server** e a nuvem Azure, utilizando **Azure Data Factory (ADF)** para mover os dados para o **Data Lake Storage Gen2**, com suporte via **Blob Storage** intermediário e pipelines orquestrados.
+
+---
+
+## 🗂️ Estrutura da Solução
+
+Abaixo está o fluxo de ponta a ponta:
+
+1. 🗃️ **SQL Server On-Premises** – Fonte dos dados originais  
+2. 🔗 **Self-hosted Integration Runtime (SHIR)** – Gateway de conexão segura com o ambiente local  
+3. 🧪 **Azure Data Factory** – Criação de pipelines de movimentação e transformação de dados  
+4. 📦 **Blob Storage (opcional)** – Camada temporária de staging (útil para arquivos grandes ou backup)  
+5. 🗄️ **Data Lake Storage Gen2** – Destino final para armazenamento redundante e estruturado  
+6. 🔁 **Triggers** – Agendamento ou execução contínua das cópias  
+
+---
+
+## 🧱 Etapas de Implementação
+
+### 🔌 1. Criar o **Self-Hosted Integration Runtime**
+
+- Acesse o Azure Data Factory  
+- Vá em `Manage > Integration Runtimes > New > Self-hosted > Download`  
+- Instale o runtime na máquina com acesso ao SQL Server  
+- Copie a **chave de autenticação** gerada e conclua a instalação  
+
+---
+
+### 🛠️ 2. Criar a **Linked Service para SQL Server**
+
+- Tipo: SQL Server  
+- Usar o SHIR configurado  
+- Fornecer string de conexão, usuário e senha  
+- Testar a conectividade  
+
+---
+
+### 📦 3. Criar a **Linked Service para o Data Lake**
+
+- Tipo: **Azure Data Lake Storage Gen2**  
+- Método de autenticação:
+  - 🔑 Chave de acesso da conta de armazenamento  
+  - 🔐 Managed Identity (se disponível e habilitada)  
+
+---
+
+### 🔁 4. Criar o **Pipeline no ADF**
+
+- Atividade principal: **Copy Data**  
+- Origem:
+  - Criar um Linked Service do SQL Server    
+- Destino (Sink):
+  - Linked Service do Data Lake   
 
 ---
 
